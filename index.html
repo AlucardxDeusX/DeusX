@@ -1,176 +1,432 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Control - Privacy Policy</title>
+
+    <title>DeusX Design</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #050507;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            width: 100%;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            border-bottom: 1px solid rgba(128, 64, 255, 0.12);
+            background: rgba(5, 5, 7, 0.85);
+            backdrop-filter: blur(12px);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: #8b5cf6;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #a5a5ad;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #a855f7;
+        }
+
+        .nav-button {
+            padding: 11px 20px;
+            border: 1px solid #6d28d9;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-button:hover {
+            background: #6d28d9;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 650px;
+            height: 650px;
+            background: #6d28d9;
+            opacity: 0.13;
+            filter: blur(150px);
+            border-radius: 50%;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 15px;
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            border-radius: 50px;
+            color: #a78bfa;
+            background: rgba(109, 40, 217, 0.08);
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 92px);
+            line-height: 1;
+            letter-spacing: -5px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(
+                90deg,
+                #8b5cf6,
+                #c084fc,
+                #7c3aed
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 0 auto 35px;
+            color: #9898a3;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .primary-btn {
+            background: #7c3aed;
+            color: white;
+            padding: 14px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .primary-btn:hover {
+            background: #8b5cf6;
+            transform: translateY(-2px);
+        }
+
+        .secondary-btn {
+            padding: 14px 25px;
+            border: 1px solid #292933;
+            color: #ddd;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .secondary-btn:hover {
+            border-color: #7c3aed;
+            color: #a78bfa;
+        }
+
+        /* ================= SERVICES ================= */
+
+        .section {
+            padding: 100px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title small {
+            color: #8b5cf6;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 11px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            margin-top: 12px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .service-card {
+            padding: 35px;
+            background: #0a0a0e;
+            border: 1px solid #181820;
+            border-radius: 14px;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: #5b21b6;
+            background: #0d0a12;
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: rgba(124, 58, 237, 0.12);
+            color: #a78bfa;
+            font-size: 22px;
+            margin-bottom: 22px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .service-card p {
+            color: #858590;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            border-top: 1px solid #15151c;
+            padding: 30px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #666671;
+            font-size: 13px;
+        }
+
+        footer span {
+            color: #8b5cf6;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 
-<body style="font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 30px; line-height: 1.6; color: #222;">
+<body>
 
-<h1>Privacy Policy</h1>
+    <!-- NAVIGATION -->
 
-<p><strong>Last updated: September 24, 2026</strong></p>
+    <nav>
+        <div class="logo">
+            DeusX<span>Design</span>
+        </div>
 
-<h2>Introduction</h2>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
 
-<p>
-Control ("we", "our", or "the app") is a device diagnostics and testing
-application designed to help users test various hardware and functions
-of their Android devices.
-</p>
+        <a href="#contact" class="nav-button">Let's Talk</a>
+    </nav>
 
-<p>
-This Privacy Policy explains what information Control may access, how
-that information is used, and how we protect your privacy while you
-use the application.
-</p>
 
-<h2>Information and Device Data</h2>
+    <!-- HERO -->
 
-<p>
-Control may access certain device information and hardware features
-when you use specific testing functions. Depending on the tests you
-perform, this may include:
-</p>
+    <section class="hero" id="home">
 
-<ul>
-    <li>Device model and manufacturer information</li>
-    <li>Android version and device software information</li>
-    <li>Available sensors and sensor readings</li>
-    <li>GPS/location information when you use the GPS test</li>
-    <li>Camera access when you use the camera test</li>
-    <li>Microphone access when you use the microphone test</li>
-    <li>Speaker and audio functionality when performing audio tests</li>
-    <li>Flashlight/torch functionality</li>
-    <li>Vibration functionality</li>
-    <li>Other device information required to perform diagnostics</li>
-</ul>
+        <div class="hero-content">
 
-<p>
-The application only accesses hardware features when they are required
-for the corresponding test or functionality.
-</p>
+            <div class="tag">
+                ✦ Digital Design Studio
+            </div>
 
-<h2>Location Information</h2>
+            <h1>
+                We Design<br>
+                <span>Digital Experiences.</span>
+            </h1>
 
-<p>
-The GPS test may request access to your device's location. Location
-information is used only to perform and display the GPS/location test
-within the application.
-</p>
+            <p>
+                DeusX Design creates modern, meaningful and
+                high-impact digital experiences built for brands
+                that want to stand out.
+            </p>
 
-<p>
-Control does not use your location for advertising or sell your location
-information to third parties.
-</p>
+            <div class="hero-buttons">
+                <a href="#services" class="primary-btn">
+                    Explore Our Work
+                </a>
 
-<h2>Camera and Microphone</h2>
+                <a href="#contact" class="secondary-btn">
+                    Get in Touch
+                </a>
+            </div>
 
-<p>
-The camera is accessed only when you use the camera testing functionality.
-The microphone is accessed only when you use the microphone testing
-functionality.
-</p>
+        </div>
 
-<p>
-These permissions can be managed or revoked through your Android device
-settings.
-</p>
+    </section>
 
-<h2>How We Use Information</h2>
 
-<p>
-Information and device features accessed by Control are used to:
-</p>
+    <!-- SERVICES -->
 
-<ul>
-    <li>Perform hardware and functionality tests</li>
-    <li>Display device and diagnostic information</li>
-    <li>Help identify whether supported device functions are working</li>
-    <li>Provide and improve the application's functionality</li>
-</ul>
+    <section class="section" id="services">
 
-<h2>Data Collection and Storage</h2>
+        <div class="section-title">
+            <small>What We Do</small>
+            <h2>Design Without Limits</h2>
+        </div>
 
-<p>
-Control is designed to perform diagnostics directly on your device.
-We do not intentionally collect or sell personal information through
-the application.
-</p>
+        <div class="services">
 
-<p>
-If any information is stored locally on your device, it is used only
-to support the application's functionality.
-</p>
+            <div class="service-card">
+                <div class="service-icon">✦</div>
 
-<h2>Data Sharing</h2>
+                <h3>UI / UX Design</h3>
 
-<p>
-We do not sell, rent, or trade personal information.
-</p>
+                <p>
+                    Clean, intuitive and engaging interfaces
+                    designed around real users and real experiences.
+                </p>
+            </div>
 
-<p>
-Information may only be shared with third-party service providers if
-such sharing is necessary to provide a specific application service,
-comply with legal requirements, or protect the security and integrity
-of the application.
-</p>
 
-<h2>Data Security</h2>
+            <div class="service-card">
+                <div class="service-icon">◈</div>
 
-<p>
-We take reasonable measures to protect information accessed by the
-application against unauthorized access, alteration, disclosure, or
-destruction.
-</p>
+                <h3>Web Design</h3>
 
-<p>
-However, no method of electronic storage or transmission can be
-guaranteed to be completely secure.
-</p>
+                <p>
+                    Modern websites that combine strong visuals,
+                    performance and a seamless user experience.
+                </p>
+            </div>
 
-<h2>Third-Party Services</h2>
 
-<p>
-Control may use third-party services or libraries required for certain
-application functionality. Such services may process information in
-accordance with their own privacy policies.
-</p>
+            <div class="service-card">
+                <div class="service-icon">◇</div>
 
-<h2>Children's Privacy</h2>
+                <h3>Brand Identity</h3>
 
-<p>
-Control is not specifically directed toward children. We do not
-knowingly collect personal information from children through the
-application.
-</p>
+                <p>
+                    Distinctive visual identities that give brands
+                    a memorable and consistent presence.
+                </p>
+            </div>
 
-<h2>Your Permissions</h2>
+        </div>
 
-<p>
-You can manage the permissions granted to Control through your Android
-device settings. Revoking a permission may prevent the corresponding
-diagnostic test from functioning.
-</p>
+    </section>
 
-<h2>Changes to This Privacy Policy</h2>
 
-<p>
-We may update this Privacy Policy from time to time. Any changes will
-be reflected by updating the "Last updated" date at the top of this
-page.
-</p>
+    <!-- FOOTER -->
 
-<!-- <h2>Contact Us</h2>
+    <footer id="contact">
 
-<p>
-If you have questions, concerns, or requests regarding this Privacy
-Policy or the privacy practices of Control, please contact us at:
-</p>   
-<p>
-<strong>your-email@example.com</strong>
-</p> -->
+        <div>
+            © 2026 <span>DeusX Design</span>. All rights reserved.
+        </div>
+
+        <div>
+            Designed with purpose.
+        </div>
+
+    </footer>
 
 </body>
-</html> 
+</html>
+```
